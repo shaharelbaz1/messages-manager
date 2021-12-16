@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
     sender: { type: String},
     recipient: { type: String},
     createdAt: {type: Date},
-    download_url: {type: String}
+    updatedAt: {type: Date}
   });
 
 exports.model = mongoose.model('messages', messagesSchema);
