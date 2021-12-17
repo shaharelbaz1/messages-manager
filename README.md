@@ -29,7 +29,7 @@ To run palindrome tests, please use the cmmand ```npm test```
 ## Operations
 
 ###### Message details object:
-{_id, message, sender, recipient, palindrome (true/false), createdAt (date), updatedAt (date)}
+###### {_id, message, sender, recipient, palindrome (true/false), createdAt (date), updatedAt (date)}
 
 - GET "/api/messages/getMessagesById/:id" - input: message id, return message details.
 - GET "/api/messages/getMessagesBySender/:sender" - input: sender phone, return messages details the belong to current sender.
