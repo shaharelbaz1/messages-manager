@@ -3,23 +3,8 @@ const router = express.Router();
 const ObjectId = require('mongoose').Types.ObjectId;
 
 const messagesSchema = require('../mongo/models/messages.model');
+const isPalindrome = require('../middleware/palindrome');
 
-
-async function isPalindrome(message){
-    return await isPalindromeRecursive(message, 0, message.length - 1);
-}
-
-async function isPalindromeRecursive(message, i, j){
-    if (i >= j) return true;
-    else{
-        if (message[i] == message[j]){
-            i ++;
-            j --;
-            return await isPalindromeRecursive(message, i, j);
-        }
-        else return false;
-    }
-}
 
 
 router.get('/getMessagesById/:id', function (req, res) {
