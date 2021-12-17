@@ -31,7 +31,7 @@ router.get('/getMessagesList', function (req, res) {
     })
 })
 
-router.post('/addMessage', async function (req, res) {
+router.post('/createMessage', async function (req, res) {
     var palindrome = await isPalindrome(req.body.message);
     var message = {message: req.body.message, palindrome: palindrome, sender: req.body.sender, recipient: req.body.recipient, createdAt: new Date(), updatedAt: new Date()}
     messagesSchema.model.create(message, function(err, results){
