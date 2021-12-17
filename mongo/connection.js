@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const config = require('../config');
 var db = mongoose.connection;
 var firstConnect = true;
 
@@ -17,7 +18,7 @@ db.on('reconnected', function () {
 });
 
 var connectWithRetry = function() {
-  return  mongoose.connect("mongodb://localhost:27017/messages", function(err){
+  return  mongoose.connect(config.mongo_url, function(err){
     if(err){
       mongoose.disconnect();
       console.info("Failed to connect to mongo db. Retrying");
