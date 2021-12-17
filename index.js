@@ -1,7 +1,7 @@
 const express = require('express');
 const color = require('colors');
 const mongoose = require('./mongo/connection');
-const messagesRouter = require('./api/messages.routes');
+const messagesRouter = require('./api/messages/messages.routes');
 const log = require('./middleware/log');
 
 const app = express();
