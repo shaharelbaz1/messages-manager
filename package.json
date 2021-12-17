@@ -4,13 +4,14 @@
   "description": "messages manager service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Shahar Gotshel",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
     "express": "^4.17.1",
+    "jest": "^27.4.5",
     "mongoose": "^6.1.2"
   }
 }
