@@ -42,17 +42,21 @@ router.get('/getMessagesList', function (req, res) {
 })
 
 router.post('/createMessage', function (req, res) {
-    messagesService.createMessage(req.body)
-    .then((results) => {
-        res.send(results);
-    })
-    .catch((err) => {
-        res.status(500).send(err);
-    });
+    if (!req.body || !req.body.message || !req.body.sender || !req.body.recipient)  res.status(400).send({error: "invalid parameters"});
+    else{
+        messagesService.createMessage(req.body)
+        .then((results) => {
+            res.send(results);
+        })
+        .catch((err) => {
+            res.status(500).send(err);
+        });
+    }
 })
 
 router.put('/updateMessage/:id', function (req, res) {
     if (!ObjectId.isValid(req.params.id))  res.status(400).send({error: "invalid object id"});
+    else if (!req.body || !req.body.message || !req.body.sender || !req.body.recipient)  res.status(400).send({error: "invalid parameters"});
     else{
         messagesService.updateMessage(req.params.id, req.body)
         .then((results) => {
