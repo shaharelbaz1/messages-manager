@@ -1,8 +1,8 @@
 version: "3"
 services:
-       message-manager-docker:
-           container_name: message-manager-docker
-           image: shahaelbaz1/message-manager-docker
+       message-manager:
+           container_name: message-manager
+           image: shahaelbaz1/message-manager
            restart: always
            build: .
            ports:
