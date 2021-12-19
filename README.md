@@ -29,13 +29,40 @@ To run palindrome tests, please use the cmmand ```npm test```
 ## Operations
 
 ###### Message details object:
-###### {_id, message, sender, recipient, palindrome (true/false), createdAt (date), updatedAt (date)}
 
-- GET "/api/messages/getMessagesById/:id" - input: message id, return message details.
-- GET "/api/messages/getMessagesBySender/:sender" - input: sender phone, return messages details the belong to current sender.
-- GET "/api/messages/getMessagesList" - return all messages details.
-- POST "/api/messages/createMessage" - input: body object {message, sender, recipient}, create the message and return success message.
-- PUT "/api/messages/updateMessage/:id" - input: message id and body object {message, sender, recipient}, find message and edit, return success message.
-- DELETE "/api/messages/deleteMessage/:id" - input: message id, find message and delete it, return success message.
+Name | Type | Description
+--- | --- | --- 
+_id | ObjectId | uniqu ID, created by mongo
+message | String | message content
+sender | String | sender number
+recipient | String | recipient number
+palindrome | Boolean | true if message is palindrome, else false
+createAt | Date | message created date
+updatedAt | Date | message updated date
+
+###### Get messages list:
+```GET /api/messages```
+curl example:
+``` curl --location --request GET 'URL/api/messages' ```
+
+###### Get message by ID:
+```GET /api/messages/:id```
+curl example:
+``` curl --location --request GET 'URL/api/messages/61bbafc1fd8923005900d909' ```
+
+###### Create message:
+```POST /api/messages```
+curl example:
+``` curl --location --request POST 'URL/api/messages' \ --header 'Content-Type: application/json' \ --data-raw '{ "message": "Hello World", "sender": "0544336331", "recipient": "0547903133"}' ```
+
+###### Update message:
+```PUT /api/messages/:id```
+curl example:
+``` curl --location --request PUT 'URL/api/messages/61bf7f0fa78a8e2c3b1692b5' \ --header 'Content-Type: application/json' \ --data-raw '{ "message": "123454321", "sender": "0544336331", "recipient": "05479031332"}' ```
+
+###### Delete message:
+```DELETE /api/messages/:id```
+curl example:
+``` curl --location --request DELETE 'URL/api/messages/61bf7f0fa78a8e2c3b1692b5' ```
  
  Before and after each request, message will print to the logs.
