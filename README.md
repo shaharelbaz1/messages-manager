@@ -66,3 +66,8 @@ curl example:
 ``` curl --location --request DELETE 'URL/api/messages/61bf7f0fa78a8e2c3b1692b5' ```
  
  Before and after each request, message will print to the logs.
+
+## Create and run Docker image
+run commands in project path:
+```docker build --tag message-manager .```
+```docker-compose up .```
